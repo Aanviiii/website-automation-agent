@@ -1,0 +1,28 @@
+# Render Blueprint — lets you deploy the backend with one click via
+# "New +" -> "Blueprint" instead of configuring fields by hand.
+services:
+  - type: web
+    name: website-automation-agent-backend
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    plan: free
+    region: oregon
+    healthCheckPath: /health
+    envVars:
+      - key: HEADLESS
+        value: "true"
+      # Set to your Vercel URL after the frontend is deployed (or leave * ).
+      - key: CORS_ORIGIN
+        value: "*"
+      # Optional — leave blank to disable. Set in the Render dashboard.
+      - key: GROK_API_KEY
+        sync: false
+      - key: GROK_MODEL
+        value: grok-2-latest
+      - key: QDRANT_URL
+        sync: false
+      - key: QDRANT_API_KEY
+        sync: false
+      - key: QDRANT_COLLECTION
+        value: agent_logs

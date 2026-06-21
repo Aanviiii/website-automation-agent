@@ -31,7 +31,14 @@ export class BrowserAgent {
   /** Tool 1: open_browser — launch Chromium and create a fresh page. */
   async open_browser(): Promise<void> {
     logger.action("open_browser: launching Chromium");
-    this.browser = await chromium.launch({ headless: env.headless });
+    this.browser = await chromium.launch({
+      headless: env.headless,
+      // Flags required to run Chromium on cloud Linux hosts (Render, Docker):
+      //  --no-sandbox / --disable-setuid-sandbox: no user namespaces available
+      //  --disable-dev-shm-usage: avoid crashes from the tiny /dev/shm on PaaS
+      // They are harmless locally (e.g. on Windows).
+      args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+    });
     this.context = await this.browser.newContext({
       viewport: { width: 1280, height: 900 },
     });

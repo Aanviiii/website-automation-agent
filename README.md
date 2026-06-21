@@ -160,11 +160,11 @@ screenshots populate.
 
 ## ☁️ Deployment
 
-- **Backend → Render** (Web Service)
-  - Root directory: `backend`
-  - Build command: `npm install && npx playwright install --with-deps chromium && npm run build`
-  - Start command: `npm start`
-  - Env: set `HEADLESS=true`, `CORS_ORIGIN=<your-vercel-url>`, plus any keys.
+- **Backend → Render** (Docker Web Service — most reliable for Playwright)
+  - Uses [`backend/Dockerfile`](backend/Dockerfile) (official Playwright image)
+    and the [`render.yaml`](render.yaml) blueprint.
+  - Root directory: `backend`, Runtime: **Docker**.
+  - Env: set `HEADLESS=true`, `CORS_ORIGIN=*` (or your Vercel URL), plus any keys.
 - **Frontend → Vercel**
   - Root directory: `frontend`
   - Framework preset: Vite

@@ -1,0 +1,6 @@
+node_modules
+dist
+screenshots/*.png
+.env
+*.log
+smoke.ts
