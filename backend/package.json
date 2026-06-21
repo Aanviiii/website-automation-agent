@@ -1,0 +1,29 @@
+{
+  "name": "website-automation-agent-backend",
+  "version": "1.0.0",
+  "description": "Intelligent website automation agent backend (Express + Playwright + Grok + Qdrant)",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "postinstall": "playwright install chromium"
+  },
+  "keywords": ["playwright", "automation", "agent", "grok", "qdrant"],
+  "license": "MIT",
+  "dependencies": {
+    "@qdrant/js-client-rest": "^1.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "openai": "^4.56.0",
+    "playwright": "^1.61.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.5.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  }
+}
