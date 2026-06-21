@@ -109,8 +109,8 @@ Nothing throws to the top level — the server stays alive across runs.
 1. Push the repo to GitHub.
 2. Render → **New** → **Web Service** → connect the GitHub repo.
 3. **Root Directory:** `backend`.
-4. **Build Command:** `npm install && npx playwright install --with-deps chromium`
-5. **Start Command:** `npm run build && npm start`
+4. **Build Command:** `npm install && npx playwright install --with-deps chromium && npm run build`
+5. **Start Command:** `npm start`
 6. **Environment** tab → add `HEADLESS=true`, `CORS_ORIGIN=<vercel-url>`, and any
    `GROK_*` / `QDRANT_*` keys.
 7. **Create Web Service** → wait for build → copy the `*.onrender.com` URL.

@@ -162,8 +162,8 @@ screenshots populate.
 
 - **Backend → Render** (Web Service)
   - Root directory: `backend`
-  - Build command: `npm install && npx playwright install --with-deps chromium`
-  - Start command: `npm run build && npm start`
+  - Build command: `npm install && npx playwright install --with-deps chromium && npm run build`
+  - Start command: `npm start`
   - Env: set `HEADLESS=true`, `CORS_ORIGIN=<your-vercel-url>`, plus any keys.
 - **Frontend → Vercel**
   - Root directory: `frontend`
