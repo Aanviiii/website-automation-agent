@@ -31,7 +31,7 @@ export async function streamAutomation(req: Request, res: Response) {
 
   // read inputs (with sensible defaults so a bare GET still works)
   const url = (req.query.url as string) || TARGET_URL;
-  const name = (req.query.name as string) || "John Doe";
+  const name = (req.query.name as string) || "Aanvi Solanki";
   const description = (req.query.description as string) || "Automated by the Website Automation Agent.";
 
   try {

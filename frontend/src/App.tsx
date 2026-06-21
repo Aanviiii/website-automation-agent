@@ -28,7 +28,7 @@ const levelColor: Record<LogEntry["level"], string> = {
 
 export default function App() {
   const [url, setUrl] = useState(DEFAULT_TARGET);
-  const [name, setName] = useState("Himanshu Rathi");
+  const [name, setName] = useState("Aanvi Solanki");
   const [description, setDescription] = useState(
     "Filled automatically by the Website Automation Agent."
   );
