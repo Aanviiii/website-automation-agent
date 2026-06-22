@@ -103,25 +103,5 @@ The first strategy that resolves a *visible* element wins.
 
 Nothing throws to the top level — the server stays alive across runs.
 
-## 9. Deployment — click by click
-
-### Backend on Render
-1. Push the repo to GitHub.
-2. Render → **New** → **Web Service** → connect the GitHub repo.
-3. **Root Directory:** `backend`.
-4. **Build Command:** `npm install && npx playwright install --with-deps chromium && npm run build`
-5. **Start Command:** `npm start`
-6. **Environment** tab → add `HEADLESS=true`, `CORS_ORIGIN=<vercel-url>`, and any
-   `GROK_*` / `QDRANT_*` keys.
-7. **Create Web Service** → wait for build → copy the `*.onrender.com` URL.
-8. Verify: open `<render-url>/health` → `{"ok":true}`.
-
-### Frontend on Vercel
-1. Vercel → **Add New** → **Project** → import the same GitHub repo.
-2. **Root Directory:** `frontend`. Framework preset auto-detects **Vite**.
-3. **Environment Variables:** `VITE_API_URL=<render-url>`.
-4. **Deploy** → open the Vercel URL → click **Start Automation**.
-5. Go back to Render env and set `CORS_ORIGIN` to the Vercel URL; redeploy backend.
-
 > Render free tier sleeps after inactivity — the first request may take ~30–60s
 > to cold-start. Mention this proactively in the viva.
